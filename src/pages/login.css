@@ -1,0 +1,165 @@
+:root {
+    --black: #12130F;
+    --blue-1: #1C5D99;
+    --blue-2: #A9D3FF;
+    --blue-3: #019EE3;
+    --offwhite-1: #FFFCF2;
+    --grey-1: #D9D9D9;
+    --grey-2: #BBC8D4;
+    --bit-title-font-size: 5rem;
+    --big-title-font-weight: 800;
+    --subtitle-font-size: 2rem;
+    --subtitle-font-weight: 400;
+    --text-font-size: 1rem;
+    --text-font-weight: 400;
+    --bold-font-weight: 700;
+    --0-20: 0.20rem;
+    --0-5: 0.5rem;
+    --1: 1rem;
+    --1-5: 1.5rem;
+    --2: 2rem;
+    --3: 3rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    color: var(--black);
+    font-family: "Fira Sans", sans-serif;
+    font-size: var(--text-font-size);
+    font-weight: var(--text-font-weight);
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding: var(--1);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    header {
+        h1 {
+            color: var(--blue-3);
+            font-size: var(--bit-title-font-size);
+            font-weight: var(--big-title-font-weight);
+            padding-bottom: var(--0-5);
+        }
+    }
+    
+    main {
+        section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h2 {
+                text-align: center;
+                font-size: var(--subtitle-font-size);
+                font-weight: var(--subtitle-font-weight);
+                padding-bottom: var(--1);
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            ul li {
+                input, button {
+                    padding: var(--1);
+                    align-items: center;
+                    align-self: stretch;
+                    border: none;
+                    border-radius: var(--0-5);
+                    
+                }
+
+                input {
+                    background-color: var(--grey-1);
+                }
+                
+                ::placeholder {
+                    color: var(--black);
+                }
+
+                button {
+                    background-color: var(--blue-3);
+                    font-size: var(--subtitle-font-size);
+                    font-weight: var(--subtitle-font-weight);
+                    color: var(--offwhite-1);
+                }
+            }
+
+            hr {
+                border: var(--0-20) solid var(--grey-1);
+                border-radius: var(--1);
+            }
+        }
+
+        section#email-login {
+            padding: var(--1, 1rem);
+
+            ul li {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: var(--2, 2rem);
+                padding: var(--1, 1rem);
+
+                div#options-container, input#login-input {
+                    width: 50vw;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                div#options-container div {
+                    padding: 0 var(--0-5);
+                    display: flex;
+                    align-items: center;
+                    gap: var(--0-5);
+
+                    img {
+                        width: var(--1-5);
+                    }
+                }
+            }
+        }
+
+        section#third-party-login {
+            h2 {
+                padding-top: var(--2);
+                padding-bottom: var(--1);
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                gap: var(--3, 3rem);
+                padding: var(--1) 0;
+
+                li a img {
+                    width: var(--3);
+                }
+            }
+        }
+
+        section#sign-up {
+
+            h3 {
+                text-align: center;
+                padding-top: var(--2);
+                padding-bottom: var(--1);
+            }
+
+            h3 span a {   
+                color: var(--blue-3);
+                font-weight: var(--bold-font-weight);
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <header>
+        <H1>Welcome</H1>
+    </header>
+    <main>
+        <section id="email-login">
+            <h2>Login with email</h2>
+            <ul>
+                <li>
+                    <input id="email" class="login-input" type="email" placeholder="Email">
+                </li>
+                <li>
+                    <input id="password" class="login-input" type="password" placeholder="Password">
+                </li>
+                <li>
+                    <div id="options-container">
+                        <div>
+                            <input id="remember-me" class="login-input" type="checkbox">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <div>
+                            <img src="/babel-room/public/Sad.svg" alt="">
+                            <a href="">Forgot password?</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button>Sign In</button>
+                </li>
+            </ul>
+        </section>
+        <section id="third-party-login">
+            <hr>
+            <h2>or</h2>
+            <ul>
+                <li><a href=""><img src="/babel-room/public/Apple.svg" alt="Apple login"></a></li>
+                <li><a href=""><img src="/babel-room/public/Google.svg" alt="Google login"></a></li>
+                <li><a href=""><img src="/babel-room/public/Facebook.svg" alt="Facebook login"></a></li>
+                <li><a href=""><img src="/babel-room/public/LinkedIn.svg" alt="LinkedIn login"></a></li>
+            </ul>
+        </section>
+        <section id="sign-up">
+            <hr>
+            <h3>Don't have an account? <span><a href="">Sign up</a></span></h3>
+        </section>
+    </main>
+</body>
+</html>
