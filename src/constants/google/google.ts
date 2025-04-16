@@ -1,5 +1,5 @@
-import ThirdParty from "../../types/ThirdParty";
-import google from '../images/Google.svg';
+import ThirdParty from "../../types/ClickableIcon";
+import google from './Google.svg';
 
 const GOOGLE: ThirdParty = {
     img: google,

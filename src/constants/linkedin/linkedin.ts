@@ -1,5 +1,5 @@
-import ThirdParty from "../../types/ThirdParty";
-import linkedin from '../images/LinkedIn.svg';
+import ThirdParty from "../../types/ClickableIcon";
+import linkedin from './LinkedIn.svg';
 
 const LINKEDIN: ThirdParty = {
     img: linkedin,

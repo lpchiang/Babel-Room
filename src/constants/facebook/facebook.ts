@@ -1,4 +1,4 @@
-import ThirdParty from "../../types/ThirdParty";
+import ThirdParty from "../../types/ClickableIcon";
 import facebook from './Facebook.svg';
 
 const FACEBOOK: ThirdParty = {
