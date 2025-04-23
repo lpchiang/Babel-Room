@@ -1,4 +1,4 @@
-import ClickableIcon from '../types/ClickableIcon';
+import ClickableIcon from '../types/clickable-icon-type';
 import APPLE from '../constants/apple/apple';
 import GOOGLE from '../constants/google/google';
 import FACEBOOK from '../constants/facebook/facebook';
@@ -9,8 +9,8 @@ const ThirdPartyIcons: ClickableIcon[] = [APPLE, GOOGLE, FACEBOOK, LINKEDIN];
 const ThirdPartyLogin: React.FC = () => {
     return (
         <ul>
-            {ThirdPartyIcons.map(({img, url}) => (
-                <li className='third-party-icons'>
+            {ThirdPartyIcons.map(({name, img, url}) => (
+                <li className='third-party-icons' key={name}>
                     <a href={url.href}>
                         <img src={img} alt=""/>
                     </a>

@@ -1,4 +1,5 @@
 type ClickableIcon = {
+    name: string,
     img: string,
     url: URL
 };

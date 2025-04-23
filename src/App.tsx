@@ -1,9 +1,12 @@
-import React from 'react';
-import Login from './pages/login';
+import AuthLayout from './pages/auth/layout';
+import Login from './pages/auth/login/login';
+import SignUp from './pages/auth/signup/sign-up';
 
 const App = () => {
   return (
-    <Login />
+    <AuthLayout>
+      <Login/>
+    </AuthLayout>
   )
 }
 
