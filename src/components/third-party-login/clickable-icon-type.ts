@@ -1,6 +1,7 @@
 type ClickableIcon = {
-    name: string,
+    key: string,
     img: string,
+    alt: string,
     url: URL
 };
 

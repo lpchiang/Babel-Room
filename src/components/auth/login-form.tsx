@@ -1,4 +1,4 @@
-import CardWrapper from "./card-wrapper";
+import CardWrapper from "../card-wrapper";
 import {
   Form,
   FormControl,
@@ -9,27 +9,25 @@ import {
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod'
-import RegisterUserSchema from "@/schemas/register-user";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import LoginUserSchema from "@/components/auth/schemas/login-user";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import { z } from "zod";
 import { useFormStatus } from "react-dom";
 import { useState } from "react";
 
-const SignUpForm = () => {
+const LoginForm = () => {
   const [loading, setLoading] = useState(false);
 
   const form = useForm({
-    resolver: zodResolver(RegisterUserSchema),
+    resolver: zodResolver(LoginUserSchema),
     defaultValues: {
       email: "",
-      name: "",
       password: "",
-      confirmPassword: "",
     }
   });
 
-  const onSubmit = (data: z.infer<typeof RegisterUserSchema>) => {
+  const onSubmit = (data: z.infer<typeof LoginUserSchema>) => {
     setLoading(true);
     console.log(data); //FETCH
     setLoading(false);
@@ -39,10 +37,10 @@ const SignUpForm = () => {
 
   return (
     <CardWrapper
-      title="Create an account"
-      label="Register"
-      backButtonHref="/auth/login"
-      backButtonLabel="Already have an account? Login here."
+      title="Login to your account"
+      label="Login"
+      backButtonHref="/auth/register"
+      backButtonLabel="Don't have an account? Register here."
     >
       <Form {...form}>
         <form
@@ -69,43 +67,10 @@ const SignUpForm = () => {
             />
             <FormField
               control={form.control}
-              name="name"
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="John Doe"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="password"
               render={({field}) => (
                 <FormItem>
                   <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      type="password"
-                      placeholder="******"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="confirmPassword"
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Confirm password</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -123,12 +88,12 @@ const SignUpForm = () => {
             className="w-full"
             disabled={pending}
           >
-            {loading ? "Loading..." : "Register"}
+            {loading ? "Loading..." : "Login"}
           </Button>
         </form>
       </Form>
     </CardWrapper>
   )
-};
+}
 
-export default SignUpForm;
+export default LoginForm;
