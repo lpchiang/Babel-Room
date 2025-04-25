@@ -1,3 +1,4 @@
+import { NavigationMenuDemo } from './components/navigation/navigation';
 import { AppSidebar } from './components/sidebar/app-sidebar';
 import Layout from './layout';
 import Auth from './pages/auth/auth';
@@ -14,10 +15,9 @@ import Dashboard from './pages/dashboard';
 const App = () => {
   return (
     <>
-      <Layout>
-        <>
-        </>
-      </Layout>
+      <NavigationMenuDemo>
+        
+      </NavigationMenuDemo>
     </>
   )
 }

@@ -1,21 +1,24 @@
-import navItem from "./nav-item-type";
+import Item from "./item-type";
 
-const DASHBOARD: navItem = {
-  key: "dashboard",
-  title: "Dashboard",
-  url: new URL("https://www.apple.com/")
-}
-
-const FORUM: navItem = {
-  key: "forum",
-  title: "Forum",
-  url: new URL("https://www.apple.com/")
-}
-
-const PROFILE: navItem = {
-  key: "profile",
-  title: "My profile",
-  url: new URL("https://www.apple.com/")
-}
-
-export const navItems: navItem[] = [DASHBOARD, FORUM, PROFILE]
+export const DashboardItems: Item[] = [
+  {
+    key: "Lessons",
+    title: "Lessons",
+    href: "https://www.google.com/",
+  },
+  {
+    key: "Class",
+    title: "Class",
+    href: "https://www.google.com/",
+  },
+  {
+    key: "Dictionary",
+    title: "Dictionary",
+    href: "https://www.google.com/",
+  },
+  {
+    key: "Notes",
+    title: "Notes",
+    href: "https://www.google.com/",
+  },
+]
