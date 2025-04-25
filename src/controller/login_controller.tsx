@@ -35,7 +35,7 @@ export function logInController() {
       }
 
       const result = await response.json();
-      console.log("Usuário registrado com sucesso:", result);
+      console.log("Login com sucesso:", result);
 
     } catch (err: any) {
       setError(err.message);
