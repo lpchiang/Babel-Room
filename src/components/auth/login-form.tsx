@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 import { z } from "zod";
 import { useFormStatus } from "react-dom";
 import { useState } from "react";
+import { logInController } from "../controller/login_controller";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -27,10 +28,17 @@ const LoginForm = () => {
     }
   });
 
-  const onSubmit = (data: z.infer<typeof LoginUserSchema>) => {
+  const { handleLogIn, loading: apiLoading, error } = logInController();
+
+  const onSubmit = async (data: z.infer<typeof LoginUserSchema>) => {
     setLoading(true);
-    console.log(data); //FETCH
-    setLoading(false);
+    try {
+      await handleLogIn(data);
+    } catch (err) {
+      console.error("Erro ao submeter:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { pending } = useFormStatus();
