@@ -7,6 +7,12 @@ const RegisterUserSchema = z.object({
     name: z.string().min(1, {
         message: "Please enter your name"
     }),
+    username: z.string().min(1, {
+        message: "Please enter your username"
+    }),
+    birthDate: z.date({
+        errorMap: () => ({ message: "Please enter a valid birth date" }),
+    }),
     password: z.string().min(6, {
         message: "Password must be at least 6 characters long"
     }),

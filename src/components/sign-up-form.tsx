@@ -15,6 +15,7 @@ import { Button } from "./ui/button";
 import { z } from "zod";
 import { useFormStatus } from "react-dom";
 import { useState } from "react";
+import { useSignUpController } from "../controller/signUp_controller";
 
 const SignUpForm = () => {
   const [loading, setLoading] = useState(false);
@@ -24,15 +25,23 @@ const SignUpForm = () => {
     defaultValues: {
       email: "",
       name: "",
+      birthDate: new Date(),
       password: "",
       confirmPassword: "",
     }
   });
 
-  const onSubmit = (data: z.infer<typeof RegisterUserSchema>) => {
+  const { handleSignUp, loading: apiLoading, error } = useSignUpController();
+
+  const onSubmit = async (data: z.infer<typeof RegisterUserSchema>) => {
     setLoading(true);
-    console.log(data); //FETCH
-    setLoading(false);
+    try {
+      await handleSignUp(data);
+    } catch (err) {
+      console.error("Erro ao submeter:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { pending } = useFormStatus();
@@ -53,7 +62,7 @@ const SignUpForm = () => {
             <FormField
               control={form.control}
               name="email"
-              render={({field}) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
@@ -70,7 +79,7 @@ const SignUpForm = () => {
             <FormField
               control={form.control}
               name="name"
-              render={({field}) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
@@ -85,8 +94,41 @@ const SignUpForm = () => {
             />
             <FormField
               control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>User Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder="john_"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="birthDate"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Birth Date</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="date"
+                      value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
+                      onChange={(e) => field.onChange(new Date(e.target.value))}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="password"
-              render={({field}) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
@@ -103,7 +145,7 @@ const SignUpForm = () => {
             <FormField
               control={form.control}
               name="confirmPassword"
-              render={({field}) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel>Confirm password</FormLabel>
                   <FormControl>
@@ -118,12 +160,8 @@ const SignUpForm = () => {
               )}
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={pending}
-          >
-            {loading ? "Loading..." : "Register"}
+          <Button type="submit" className="w-full" disabled={apiLoading}>
+            {apiLoading ? "Loading..." : "Register"}
           </Button>
         </form>
       </Form>
