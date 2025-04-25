@@ -15,7 +15,7 @@ import { Button } from "../ui/button";
 import { z } from "zod";
 import { useFormStatus } from "react-dom";
 import { useState } from "react";
-import { useSignUpController } from "../controller/signUp_controller";
+import { useSignUpController } from "../../controller/signUp_controller";
 
 const SignUpForm = () => {
   const [loading, setLoading] = useState(false);
