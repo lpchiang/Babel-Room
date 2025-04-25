@@ -4,7 +4,7 @@ import {
     CardHeader,
     CardFooter
 } from "@/components/ui/card";
-import AuthHeader from "./auth-header";
+import AuthHeader from "./auth/auth-header";
 import BackButton from "./back-button";
 
 type CardWrapperProps = {

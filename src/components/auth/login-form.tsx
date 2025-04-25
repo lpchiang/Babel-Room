@@ -1,4 +1,4 @@
-import CardWrapper from "./card-wrapper";
+import CardWrapper from "../card-wrapper";
 import {
   Form,
   FormControl,
@@ -9,9 +9,9 @@ import {
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod'
-import LoginUserSchema from "@/schemas/login-user";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import LoginUserSchema from "@/components/auth/schemas/login-user";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import { z } from "zod";
 import { useFormStatus } from "react-dom";
 import { useState } from "react";
