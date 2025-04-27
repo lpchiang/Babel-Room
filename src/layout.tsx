@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider open={open} onOpenChange={setOpen}>
       <AppSidebar />
-      <main>
+      <main className="w-screen max-w-full p-8">
         <SidebarTrigger />
         {children}
       </main>

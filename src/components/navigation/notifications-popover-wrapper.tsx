@@ -6,7 +6,7 @@ const NotificationsPopoverWrapper: React.FC = () => {
   return (
     <Popover>
       <PopoverTrigger className='py-2'>
-        <Bell />
+        <Bell color='white'/>
       </PopoverTrigger>
       <PopoverContent>To do</PopoverContent>
     </Popover>

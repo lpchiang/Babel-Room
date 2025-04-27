@@ -4,7 +4,7 @@ import './index.css'
 import App from './App'
 
 createRoot(document.getElementById('root')!).render(
-  <div className='bg-blue-400 w-full h-screen'>
+  <div className='bg-blue-300 size-full'>
     <StrictMode>
       <App />
     </StrictMode>
