@@ -18,8 +18,6 @@ export function logInController() {
       password: data.password,
     };
 
-    console.log("Enviando para API:", requestBody);
-
     try {
       const response = await fetch(API_URL, {
         method: "POST",
@@ -35,7 +33,9 @@ export function logInController() {
       }
 
       const result = await response.json();
-      console.log("Login com sucesso:", result);
+
+      const accessToken = result.accessToken
+      localStorage.setItem('accessToken', accessToken);
 
     } catch (err: any) {
       setError(err.message);

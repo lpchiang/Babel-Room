@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import CardWrapper from "../card-wrapper";
 import {
   Form,
@@ -19,12 +20,14 @@ import { useSignUpController } from "../../controller/signUp_controller";
 
 const SignUpForm = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const form = useForm({
+  const form = useForm<z.infer<typeof RegisterUserSchema>>({
     resolver: zodResolver(RegisterUserSchema),
     defaultValues: {
       email: "",
       name: "",
+      username: "",
       birthDate: new Date(),
       password: "",
       confirmPassword: "",
@@ -36,7 +39,11 @@ const SignUpForm = () => {
   const onSubmit = async (data: z.infer<typeof RegisterUserSchema>) => {
     setLoading(true);
     try {
-      await handleSignUp(data);
+      const result = await handleSignUp(data);
+  
+      if (result?.success) { 
+        navigate(`/auth/confirm-email?email=${encodeURIComponent(data.email)}`);
+      }
     } catch (err) {
       console.error("Erro ao submeter:", err);
     } finally {
@@ -54,10 +61,7 @@ const SignUpForm = () => {
       backButtonLabel="Already have an account? Login here."
     >
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
             <FormField
               control={form.control}
@@ -163,10 +167,16 @@ const SignUpForm = () => {
           <Button type="submit" className="w-full" disabled={apiLoading}>
             {apiLoading ? "Loading..." : "Register"}
           </Button>
+          
+          {error && (
+            <div className="text-sm font-medium text-destructive text-center mt-2">
+              {error}
+            </div>
+          )}
         </form>
       </Form>
     </CardWrapper>
-  )
+  );
 };
 
 export default SignUpForm;
