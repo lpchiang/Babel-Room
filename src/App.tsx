@@ -1,31 +1,19 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// src/App.js
+import { BrowserRouter } from 'react-router-dom';
 import { NavigationMenuDemo } from './components/navigation/navigation';
 import Layout from './layout';
-import Auth from './pages/auth/auth';
-import SignUp from './pages/auth/signup/sign-up';
-import Login from './pages/auth/login/login';
-import ConfirmEmail from './pages/auth/confirm-email/confirm-email';
-import Forum from './components/forum/forum'; 
-import Lessons from './components/content/content';
+import AuthRouter from './routers/AuthRouter'; 
+import DashboardRouter from './routers/DashboardRouter'; 
 
-/* <>
-      <NavigationMenuDemo/>
-      <Layout>
-        <Lessons />
-      </Layout>
-    </>
-*/
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Auth><SignUp /></Auth>} />
-        <Route path="/auth/signup" element={<Auth><SignUp /></Auth>} />
-        <Route path="/auth/login" element={<Auth><Login /></Auth>} />
-        <Route path="/auth/confirm-email" element={<Auth><ConfirmEmail /></Auth>} />
-
-        <Route path="/forum" element={<Forum />} />
-      </Routes>
+      <AuthRouter />
+      
+      <Layout>
+        <NavigationMenuDemo />
+        <DashboardRouter />
+      </Layout>
     </BrowserRouter>
   );
 };
