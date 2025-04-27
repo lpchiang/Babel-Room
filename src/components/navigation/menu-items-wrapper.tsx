@@ -3,14 +3,13 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import AvatarButton from "./avatar-button"
 import NotificationsPopoverWrapper from "./notifications-popover-wrapper"
 import { Avatar, AvatarImage } from "../ui/avatar"
 import jare from "./assets/Jare.jpg"
 
 const MenuItemsWrapper: React.FC = () => {
   return (
-    <div className="flex flex-row flex-nowrap justify-around gap-4 content-center *:text-3xl">
+    <div className="flex flex-row flex-nowrap justify-around gap-4 content-center">
       <NavigationMenuItem>
       <NavigationMenuLink className={navigationMenuTriggerStyle()}>
           <a href="/docs">

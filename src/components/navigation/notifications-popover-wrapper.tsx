@@ -4,7 +4,7 @@ import { Bell } from 'lucide-react'
 const NotificationsPopoverWrapper: React.FC = () => {
   return (
     <Popover>
-      <PopoverTrigger>
+      <PopoverTrigger className='py-2'>
         <Bell />
       </PopoverTrigger>
       <PopoverContent>To do</PopoverContent>
