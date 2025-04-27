@@ -7,17 +7,14 @@ import SignUp from './pages/auth/signup/sign-up';
 import Dashboard from './pages/dashboard';
 
 /*
-    <Layout>
-        
-      </Layout>
+    
 */
 
 const App = () => {
   return (
     <>
-      <NavigationMenuDemo>
-        
-      </NavigationMenuDemo>
+      <NavigationMenuDemo />
+      <Layout>      </Layout>
     </>
   )
 }

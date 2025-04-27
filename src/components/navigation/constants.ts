@@ -1,4 +1,4 @@
-import Item from "./item-type";
+import { Item } from "./types";
 
 export const DashboardItems: Item[] = [
   {
@@ -21,4 +21,4 @@ export const DashboardItems: Item[] = [
     title: "Notes",
     href: "https://www.google.com/",
   },
-]
+];
