@@ -38,7 +38,7 @@ const LoginForm = () => {
       const result = await handleLogIn(data);
   
       if (result?.success) {
-        navigate("/forum");
+        navigate("/docs");
       } else {
         console.error("Login falhou:", result?.message || "Erro desconhecido.");
       }

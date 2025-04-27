@@ -11,30 +11,26 @@ const MenuItemsWrapper: React.FC = () => {
   return (
     <div className="flex flex-row flex-nowrap justify-around gap-4 content-center">
       <NavigationMenuItem>
-      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-          <a href="/docs">
-            Dashboard
-          </a>
+        <NavigationMenuLink href="/docs" className={navigationMenuTriggerStyle()}>
+          Dashboard
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-          <a href="/docs">
-            Forum
-          </a>
+        <NavigationMenuLink href="/forum" className={navigationMenuTriggerStyle()}>
+          Forum
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NotificationsPopoverWrapper />
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-          <a href="/docs" className="flex flex-row gap-4">
+        <NavigationMenuLink href="/profile" className={navigationMenuTriggerStyle()}>
+          <div className="flex flex-row gap-4 items-center">
             <Avatar>
               <AvatarImage src={jare}/>
             </Avatar>
             Username
-          </a>
+          </div>
         </NavigationMenuLink>
       </NavigationMenuItem>
     </div>
