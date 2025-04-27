@@ -31,7 +31,7 @@ export function logInController() {
 
       const result = await response.json();
       const accessToken = result.accessToken;
-      localStorage.setItem('authToken', accessToken); // Use 'authToken' para manter consistência com seu projeto
+      localStorage.setItem('authToken', accessToken); 
 
       return { success: true, message: "Login realizado com sucesso!" };
 

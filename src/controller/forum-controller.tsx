@@ -72,6 +72,50 @@ export function forumController() {
       console.error('Erro ao postar no fórum:', error);
       return [];
     }
+  }
+  const handleAddComment = async (topicId: string, commentContent: string, postId: string) => {
+    const token = localStorage.getItem('authToken');
+  
+    if (!token) {
+      console.error('Token não encontrado');
+      return;
+    }
+  
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const payload = JSON.parse(window.atob(base64));
+    const uniqueName = payload.unique_name;
+  
+    const url = `${API_URL}/${topicId}/posts/${postId}/comments`; 
+  
+    const newComment = {
+      commentId: crypto.randomUUID(),
+      authorId: uniqueName,
+      content: commentContent,
+    };
+  
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify(newComment),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Erro ao adicionar comentário");
+      }
+  
+      const data = await response.json();
+      console.log("Comentário adicionado:", data);
+      return data;
+    } catch (error) {
+      console.error("Erro ao adicionar comentário:", error);
+    }
   };
-  return { handleForum, handlePostForum };
+  
+  return { handleForum, handlePostForum, handleAddComment };
 }
