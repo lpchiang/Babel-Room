@@ -16,9 +16,11 @@ import { z } from "zod";
 import { useFormStatus } from "react-dom";
 import { useState } from "react";
 import { logInController } from "../../controller/login_controller";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm({
     resolver: zodResolver(LoginUserSchema),
@@ -33,7 +35,13 @@ const LoginForm = () => {
   const onSubmit = async (data: z.infer<typeof LoginUserSchema>) => {
     setLoading(true);
     try {
-      await handleLogIn(data);
+      const result = await handleLogIn(data);
+  
+      if (result?.success) {
+        navigate("/forum");
+      } else {
+        console.error("Login falhou:", result?.message || "Erro desconhecido.");
+      }
     } catch (err) {
       console.error("Erro ao submeter:", err);
     } finally {

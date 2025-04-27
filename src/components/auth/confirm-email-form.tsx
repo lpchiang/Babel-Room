@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom"; 
-import CardWrapper from "../card-wrapper";
+import CardWrapper from "./card-wrapper";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { confirmEmailController } from "../../controller/confirm_email_controller"; 
