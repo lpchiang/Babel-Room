@@ -1,13 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavigationMenuDemo } from './components/navigation/navigation';
-import { AppSidebar } from './components/sidebar/app-sidebar';
 import Layout from './layout';
 import Auth from './pages/auth/auth';
 import SignUp from './pages/auth/signup/sign-up';
 import Login from './pages/auth/login/login';
 import ConfirmEmail from './pages/auth/confirm-email/confirm-email';
 import Forum from './components/forum/forum'; 
+import Lessons from './components/content/content';
 
+/* <>
+      <NavigationMenuDemo/>
+      <Layout>
+        <Lessons />
+      </Layout>
+    </>
+*/
 const App = () => {
   return (
     <BrowserRouter>
