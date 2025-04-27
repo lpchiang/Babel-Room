@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import CardWrapper from "../card-wrapper";
+import CardWrapper from "./card-wrapper";
 import {
   Form,
   FormControl,

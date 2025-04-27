@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AppSidebar } from './components/sidebar/app-sidebar';
+import Layout from './layout';
 import Auth from './pages/auth/auth';
 import SignUp from './pages/auth/signup/sign-up';
 import Login from './pages/auth/login/login';

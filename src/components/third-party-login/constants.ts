@@ -1,35 +1,32 @@
-import ClickableIcon from "./clickable-icon-type";
 import apple from './assets/Apple.svg';
 import facebook from './assets/Facebook.svg';
 import google from './assets/Google.svg';
 import linkedin from './assets/LinkedIn.svg';
+import ClickableIcon from "./clickable-icon-type";
 
-const APPLE: ClickableIcon = {
-    key: 'apple',
-    img: apple,
-    alt: 'apple icon',
-    url: new URL("https://www.apple.com/")
-};
-
-const FACEBOOK: ClickableIcon = {
-    key: 'facebook',
-    img: facebook,
-    alt: 'facebook icon',
-    url: new URL("https://www.facebook.com/")
-};
-
-const GOOGLE: ClickableIcon = {
-    key: 'google',
-    img: google,
-    alt: 'google icon',
-    url: new URL("https://www.google.com/")
-};
-
-const LINKEDIN: ClickableIcon = {
-    key: 'linkedin',
-    img: linkedin,
-    alt: 'linkedin icon',
-    url: new URL("https://www.linkedin.com/")
-}
-
-export const ThirdPartyIcons: ClickableIcon[] = [APPLE, GOOGLE, FACEBOOK, LINKEDIN];
+export const ThirdPartyIcons: ClickableIcon[] = [
+    {
+        key: 'apple',
+        img: apple,
+        alt: 'apple icon',
+        url: new URL("https://www.apple.com/")
+    },
+    {
+        key: 'google',
+        img: google,
+        alt: 'google icon',
+        url: new URL("https://www.google.com/")
+    },
+    {
+        key: 'facebook',
+        img: facebook,
+        alt: 'facebook icon',
+        url: new URL("https://www.facebook.com/")
+    },
+    {
+        key: 'linkedin',
+        img: linkedin,
+        alt: 'linkedin icon',
+        url: new URL("https://www.linkedin.com/")
+    }
+ ];
