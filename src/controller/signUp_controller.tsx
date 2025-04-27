@@ -26,8 +26,6 @@ export function useSignUpController() {
       passwordHash: data.confirmPassword,
     };
 
-    console.log("Enviando para API:", requestBody);
-
     try {
       const response = await fetch(API_URL, {
         method: "POST",
@@ -36,18 +34,18 @@ export function useSignUpController() {
         },
         body: JSON.stringify(requestBody),
       });
-      console.log(response)
+
       if (!response.ok) {
         const err = await response.json();
         throw new Error(err.message || "Erro ao registrar");
       }
 
       const result = await response.json();
-      console.log("Usuário registrado com sucesso:", result);
+      return { success: true, data: result }; 
 
     } catch (err: any) {
       setError(err.message);
-      console.error("❌ Erro no registro:", err.message);
+      return { success: false, error: err.message }; 
     } finally {
       setLoading(false);
     }
