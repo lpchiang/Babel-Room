@@ -10,8 +10,8 @@ const App = () => {
     <BrowserRouter>
       <AuthRouter />
       
-      <Layout>
         <NavigationMenuDemo />
+      <Layout>
         <DashboardRouter />
       </Layout>
     </BrowserRouter>
