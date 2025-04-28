@@ -3,7 +3,8 @@ import { Progress } from "@/components/ui/progress";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { CheckCircle, BookOpen, Award } from "lucide-react";
 import { useEffect, useState } from "react";
-import { progressUserController } from "../../controller/progress-controller"; // adjust path
+import { progressUserController } from "../../controller/progress-controller";
+import { Link } from 'react-router-dom';
 
 interface LearningProgress {
   completedLessons: number;
@@ -45,9 +46,9 @@ const LearningProgressCard = () => {
           console.log("Received progress data:", data);
           setProgressData({
             completedLessons: data.lessonCompleted || 0,
-            totalLessons: 10,
+            totalLessons: 1,
             completedExercises: data.exerciseCompleted || 0,
-            totalExercises: 10,
+            totalExercises: 1,
             currentLevel: data.currentLevel || 1,
             xp: data.xp || 0,
             xpToNextLevel: data.xpToNextLevel || 0,
@@ -216,6 +217,9 @@ const LearningProgressCard = () => {
                 )}
               </div>
             </div>
+            <Link to="/simple-present" className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+          ← Go to Grammar
+        </Link>
           </CardContent>
         </Card>
       </div>
