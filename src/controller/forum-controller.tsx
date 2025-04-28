@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { string } from "zod";
-
 const API_URL = 'http://localhost:5092/api/forum';
 
 export function forumController() {
