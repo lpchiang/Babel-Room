@@ -19,7 +19,7 @@ import { useState } from "react";
 import { useSignUpController } from "../../controller/signUp_controller";
 
 const SignUpForm = () => {
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof RegisterUserSchema>>({
@@ -51,7 +51,7 @@ const SignUpForm = () => {
     }
   };
 
-  const { pending } = useFormStatus();
+  const { } = useFormStatus();
 
   return (
     <CardWrapper
