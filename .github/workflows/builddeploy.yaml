@@ -3,7 +3,7 @@ name: Deploy React to GitHub Pages
 on:
   push:
     branches:
-      - main # name of the branch you are pushing to
+      - main
 
 jobs:
   build:
@@ -11,18 +11,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - name: Install Dependencies
         run: npm ci
+
       - name: Build
         run: npm run build
+
+      - name: List root directory
+        run: ls -la
+
+      - name: List build directory
+        run: ls -la build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build/.'
+          path: build
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -31,9 +42,11 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: 'https://$lpchaing.github.io/$Babel-Room/'
+      url: 'https://lpchaing.github.io/Babel-Room/' # Fix env var syntax
+
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Deploy
         uses: actions/deploy-pages@v4
