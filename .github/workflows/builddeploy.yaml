@@ -23,13 +23,25 @@ jobs:
       - name: Build
         run: npm run build
 
+<<<<<<< HEAD
       - name: List output
         run: ls -la dist
+=======
+      - name: List root directory
+        run: ls -la
+
+      - name: List build directory
+        run: ls -la build
+>>>>>>> 12c8c1d (Pages (#8))
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+<<<<<<< HEAD
           path: dist
+=======
+          path: build
+>>>>>>> 12c8c1d (Pages (#8))
 
   deploy:
     needs: build
@@ -39,7 +51,11 @@ jobs:
       id-token: write
     environment:
       name: github-pages
+<<<<<<< HEAD
       url: 'https://lpchaing.github.io/Babel-Room/'
+=======
+      url: 'https://lpchaing.github.io/Babel-Room/' # Fix env var syntax
+>>>>>>> 12c8c1d (Pages (#8))
 
     steps:
       - name: Setup Pages
