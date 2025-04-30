@@ -30,7 +30,7 @@ const LoginForm = () => {
     }
   });
 
-  const { handleLogIn, loading: apiLoading, error } = logInController();
+  const { handleLogIn } = logInController();
 
   const onSubmit = async (data: z.infer<typeof LoginUserSchema>) => {
     setLoading(true);
