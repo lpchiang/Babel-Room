@@ -55,7 +55,7 @@ const LoginForm = () => {
     <CardWrapper
       title="Login to your account"
       label="Login"
-      backButtonHref="/auth/signup"
+      backButtonHref="Babel-Room/auth/signup"
       backButtonLabel="Don't have an account? Register here."
     >
       <Form {...form}>
