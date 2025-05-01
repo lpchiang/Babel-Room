@@ -39,7 +39,8 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: 'https://lpchaing.github.io/Babel-Room/'
+      url: 'https://lpchiang.github.io/Babel-Room/'
+
 
     steps:
       - name: Setup Pages
