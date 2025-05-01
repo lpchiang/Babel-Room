@@ -1,6 +1,5 @@
 const API_URL = 'http://3.142.243.38:5000/api/progress';
 
-
 export function progressUserController() {
     const handleProgress = async () => {
         const token = localStorage.getItem('authToken');
