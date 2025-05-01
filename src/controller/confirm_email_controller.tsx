@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = 'http://3:142:243:38:5000/api/users';
+const API_URL = 'http://3.142.243.38:5000/api/users';
 
 export function confirmEmailController() {
   const [loading, setLoading] = useState(false);
