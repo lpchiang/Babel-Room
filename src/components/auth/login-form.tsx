@@ -18,6 +18,7 @@ import { useState } from "react";
 import { logInController } from "../../controller/login_controller";
 import { useNavigate } from "react-router-dom";
 
+
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ const LoginForm = () => {
     <CardWrapper
       title="Login to your account"
       label="Login"
-      backButtonHref="Babel-Room/auth/signup"
+      backButtonHref="auth/signup"
       backButtonLabel="Don't have an account? Register here."
     >
       <Form {...form}>
