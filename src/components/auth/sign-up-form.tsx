@@ -57,7 +57,7 @@ const SignUpForm = () => {
     <CardWrapper
       title="Create an account"
       label="Register"
-      backButtonHref="/auth/login"
+      backButtonHref="auth/login"
       backButtonLabel="Already have an account? Login here."
     >
       <Form {...form}>
