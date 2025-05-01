@@ -7,7 +7,7 @@ import DashboardRouter from './routers/DashboardRouter';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Babel-Room/">
       <AuthRouter />
       
         <NavigationMenuDemo />
