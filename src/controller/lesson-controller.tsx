@@ -1,5 +1,5 @@
 // src/controller/lesson-controller.ts
-const API_URL = 'http://localhost:5092/api/Question';
+const API_URL = 'http://3:142:243:38:5000/api/Question';
 
 export function lessonController() {
   const handleLesson = async (questionId: string) => {

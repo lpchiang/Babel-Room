@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5092/api/forum';
+const API_URL = 'http://3:142:243:38:5000/api/forum';
 
 export function forumController() {
   const handleForum = async () => {
