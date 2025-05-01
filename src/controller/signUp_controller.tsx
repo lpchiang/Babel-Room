@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = 'http://localhost:5092/api/users/signUp';
+const API_URL = 'http://3:142:243:38:5000/api/users/signUp';
 
 export function useSignUpController() {
   const [loading, setLoading] = useState(false);
