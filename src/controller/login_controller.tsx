@@ -16,6 +16,7 @@ export function logInController() {
     };
 
     try {
+      console.log(API_URL, requestBody);
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
